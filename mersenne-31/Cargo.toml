@@ -8,24 +8,24 @@ license = "MIT OR Apache-2.0"
 nightly-features = []
 
 [dependencies]
-itertools = { version = "0.13.0", default-features = false, features = ["use_alloc"] }
-num-bigint = { version = "0.4.3", default-features = false }
-p3-dft = { path = "../dft" }
-p3-field = { path = "../field" }
-p3-matrix = { path = "../matrix" }
-p3-maybe-rayon = { path = "../maybe-rayon" }
-p3-mds = { path = "../mds" }
-p3-poseidon2 = { path = "../poseidon2" }
-p3-symmetric = { path = "../symmetric" }
-p3-util = { path = "../util" }
-rand = "0.8.5"
-serde = { version = "1.0", default-features = false, features = ["derive"] }
+itertools = { workspace = true, default-features = false, features = ["use_alloc"] }
+num-bigint = { workspace = true, default-features = false }
+p3-dft.workspace = true
+p3-field.workspace = true
+p3-matrix.workspace = true
+p3-maybe-rayon.workspace = true
+p3-mds.workspace = true
+p3-poseidon2.workspace = true
+p3-symmetric.workspace = true
+p3-util.workspace = true
+rand.workspace = true
+serde = { workspace = true, features = ["derive"] }
 
 [dev-dependencies]
-criterion = "0.5"
-p3-field-testing = { path = "../field-testing" }
-rand_chacha = "0.3.1"
-rand_xoshiro = "0.6.0"
+criterion.workspace = true
+p3-field-testing.workspace = true
+rand_chacha.workspace = true
+rand_xoshiro.workspace = true
 
 [[bench]]
 name = "bench_field"

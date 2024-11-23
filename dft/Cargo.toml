@@ -5,20 +5,20 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-itertools = { version = "0.13.0", default-features = false, features = ["use_alloc"] }
-p3-field = { path = "../field" }
-p3-matrix = { path = "../matrix" }
-p3-maybe-rayon = { path = "../maybe-rayon" }
-p3-util = { path = "../util" }
-tracing = { version = "0.1.37", default-features = false, features = ["attributes"] }
+itertools = { workspace = true, default-features = false, features = ["use_alloc"] }
+p3-field.workspace = true
+p3-matrix.workspace = true
+p3-maybe-rayon.workspace = true
+p3-util.workspace = true
+tracing = { workspace = true, default-features = false }
 
 [dev-dependencies]
-p3-monty-31 = { path = "../monty-31" }
-p3-baby-bear = { path = "../baby-bear" }
-p3-goldilocks = { path = "../goldilocks" }
-p3-mersenne-31 = { path = "../mersenne-31" }
-criterion = "0.5.1"
-rand = { version = "0.8.5", default-features = false }
+criterion.workspace = true
+p3-baby-bear.workspace = true
+p3-goldilocks.workspace = true
+p3-mersenne-31.workspace = true
+p3-monty-31.workspace = true
+rand.workspace = true
 
 [[bench]]
 name = "fft"

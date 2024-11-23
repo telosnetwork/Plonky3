@@ -5,6 +5,6 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-p3-symmetric = { path = "../symmetric" }
-p3-util = { path = "../util" }
-tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+p3-symmetric.workspace = true
+p3-util.workspace = true
+tiny-keccak = { workspace = true, features = ["keccak"] }

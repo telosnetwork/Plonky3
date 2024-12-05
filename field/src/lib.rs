@@ -1,7 +1,7 @@
 //! A framework for finite fields.
 
 #![no_std]
-
+#![feature(inline_const)]
 extern crate alloc;
 
 mod array;

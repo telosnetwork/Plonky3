@@ -1,5 +1,4 @@
 use alloc::vec;
-use alloc::vec::Vec;
 use core::fmt::{Debug, Display};
 use core::hash::Hash;
 use core::iter::{Product, Sum};
@@ -8,8 +7,6 @@ use core::slice;
 
 use itertools::Itertools;
 use num_bigint::BigUint;
-use num_traits::One;
-use nums::{Factorizer, FactorizerFromSplitter, MillerRabin, PollardRho};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 
@@ -232,18 +229,6 @@ pub trait Field:
     }
 
     fn order() -> BigUint;
-
-    /// A list of (factor, exponent) pairs.
-    fn multiplicative_group_factors() -> Vec<(BigUint, usize)> {
-        let primality_test = MillerRabin { error_bits: 128 };
-        let composite_splitter = PollardRho;
-        let factorizer = FactorizerFromSplitter {
-            primality_test,
-            composite_splitter,
-        };
-        let n = Self::order() - BigUint::one();
-        factorizer.factor_counts(&n)
-    }
 
     #[inline]
     fn bits() -> usize {

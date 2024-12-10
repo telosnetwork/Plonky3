@@ -13,6 +13,7 @@ rand_chacha = "0.3.1"
 criterion = "0.5.1"
 num-bigint = { version = "0.4.3", default-features = false }
 num-traits = "0.2.19"
+nums = "0.1.0"
 
 [dev-dependencies]
 p3-baby-bear = { path = "../baby-bear" }

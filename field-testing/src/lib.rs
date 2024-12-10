@@ -8,10 +8,12 @@ pub mod bench_func;
 pub mod dft_testing;
 pub mod packedfield_testing;
 
+use alloc::vec::Vec;
 pub use bench_func::*;
 pub use dft_testing::*;
 use num_bigint::BigUint;
 use num_traits::identities::One;
+use nums::{Factorizer, FactorizerFromSplitter, MillerRabin, PollardRho};
 use p3_field::{
     cyclic_subgroup_coset_known_order, cyclic_subgroup_known_order, two_adic_coset_zerofier,
     two_adic_subgroup_zerofier, ExtensionField, Field, TwoAdicField,
@@ -81,8 +83,19 @@ where
     }
 }
 
+/// A list of (factor, exponent) pairs.
+fn multiplicative_group_factors<F: Field>() -> Vec<(BigUint, usize)> {
+    let primality_test = MillerRabin { error_bits: 128 };
+    let composite_splitter = PollardRho;
+    let factorizer = FactorizerFromSplitter {
+        primality_test,
+        composite_splitter,
+    };
+    let n = F::order() - BigUint::one();
+    factorizer.factor_counts(&n)
+}
 pub fn test_multiplicative_group_factors<F: Field>() {
-    let product: BigUint = F::multiplicative_group_factors()
+    let product: BigUint = multiplicative_group_factors::<F>()
         .into_iter()
         .map(|(factor, exponent)| factor.pow(exponent as u32))
         .product();

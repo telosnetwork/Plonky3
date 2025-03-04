@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "goldilocks_improvements" ]
   pull_request:
     branches: [ "*" ]
 
@@ -19,8 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: dtolnay/rust-toolchain@stable
-      id: rs-stable
+    - uses: dtolnay/rust-toolchain@nightly
+      id: rs-nightly
 
     - uses: actions/cache@v3
       with:
@@ -30,7 +30,7 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           target/
-        key: rust-${{ steps.rs-stable.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml') }}
+        key: rust-${{ steps.rs-nightly.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml') }}
 
     - name: Build
       run: cargo build --verbose --all-targets
@@ -52,10 +52,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: dtolnay/rust-toolchain@stable
+    - uses: dtolnay/rust-toolchain@nightly
       with:
           components: clippy
-      id: rs-stable
+      id: rs-nightly
 
     - uses: dtolnay/rust-toolchain@nightly
       with:
@@ -69,10 +69,10 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           target/
-        key: rust-${{ steps.rs-stable.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml') }}
+        key: rust-${{ steps.rs-nightly.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml') }}
 
     - name: Clippy
-      run: cargo +stable clippy --all-targets -- -D warnings
+      run: cargo +nightly clippy --all-targets -- -D warnings
 
     - name: Format
       run: cargo +nightly fmt --all -- --check 
@@ -85,8 +85,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: dtolnay/rust-toolchain@stable
-      id: rs-stable
+    - uses: dtolnay/rust-toolchain@nightly
+      id: rs-nightly
 
     - uses: actions/cache@v3
       with:
@@ -96,7 +96,7 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           target/
-        key: rust-${{ steps.rs-stable.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml', '**/Cargo.lock') }}
+        key: rust-${{ steps.rs-nightly.outputs.rustc_hash }}-${{ hashFiles('**/Cargo.toml', '**/Cargo.lock') }}
   
     - name: Cargo Check Crates
       run: |

@@ -172,7 +172,6 @@ impl Field for Bn254Fr {
             0x30644e72,
         ])
     }
-
 }
 
 impl PrimeField for Bn254Fr {

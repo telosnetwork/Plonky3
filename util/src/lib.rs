@@ -15,7 +15,7 @@ pub mod linear_map;
 /// Computes `ceil(a / b)`. Assumes `a + b` does not overflow.
 #[must_use]
 pub const fn ceil_div_usize(a: usize, b: usize) -> usize {
-    (a + b - 1) / b
+    a.div_ceil(b)
 }
 
 /// Computes `ceil(log_2(n))`.
@@ -207,7 +207,9 @@ where
 }
 
 /// Repeatedly read `BUFLEN` elements from `input` into an array and
-/// pass the array to `func` as a slice. If less than `BUFLEN`
+/// pass the array to `func` as a slice.
+///
+/// If less than `BUFLEN`
 /// elements are remaining, that smaller slice is passed to `func` (if
 /// it is non-empty) and the function returns.
 #[inline]

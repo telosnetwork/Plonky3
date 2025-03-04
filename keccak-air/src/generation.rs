@@ -14,6 +14,7 @@ use crate::logic::{andn, xor};
 use crate::{BITS_PER_LIMB, NUM_ROUNDS, U64_LIMBS};
 
 // TODO: Take generic iterable
+#[allow(clippy::manual_repeat_n)]
 #[instrument(name = "generate Keccak trace", skip_all)]
 pub fn generate_trace_rows<F: PrimeField64>(inputs: Vec<[u64; 25]>) -> RowMajorMatrix<F> {
     let num_rows = (inputs.len() * NUM_ROUNDS).next_power_of_two();

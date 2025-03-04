@@ -389,9 +389,9 @@ mod tests {
         assert_eq!(
             z_coeffs,
             iter::empty()
-                .chain(iter::repeat(F::zero()).take(n))
+                .chain(iter::repeat_n(F::zero(), n))
                 .chain(iter::once(F::one()))
-                .chain(iter::repeat(F::zero()).take(n - 1))
+                .chain(iter::repeat_n(F::zero(), n - 1))
                 .collect_vec()
         );
     }

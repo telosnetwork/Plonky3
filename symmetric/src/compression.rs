@@ -3,6 +3,8 @@ use core::marker::PhantomData;
 use crate::hasher::CryptographicHasher;
 use crate::permutation::CryptographicPermutation;
 
+/// An `n`-to-1 compression function.
+///
 /// An `n`-to-1 compression function, like `CompressionFunction`, except that it need only be
 /// collision-resistant in a hash tree setting, where the preimage of a non-leaf node must consist
 /// of compression outputs.

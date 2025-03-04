@@ -8,9 +8,10 @@ use crate::butterflies::{dif_butterfly, dit_butterfly, twiddle_free_butterfly};
 use crate::MdsPermutation;
 
 /// An MDS permutation which works by interpreting the input as evaluations of a polynomial over a
-/// power-of-two subgroup, and computing evaluations over a coset of that subgroup. This can be
-/// viewed as returning the parity elements of a systematic Reed-Solomon code. Since Reed-Solomon
-/// codes are MDS, this is an MDS permutation.
+/// power-of-two subgroup, and computing evaluations over a coset of that subgroup.
+///
+/// This can be viewed as returning the parity elements of a systematic Reed-Solomon code.
+/// Since Reed-Solomon codes are MDS, this is an MDS permutation.
 #[derive(Clone, Debug)]
 pub struct CosetMds<F, const N: usize> {
     fft_twiddles: Vec<F>,

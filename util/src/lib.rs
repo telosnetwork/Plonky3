@@ -1,7 +1,6 @@
 //! Various simple utilities.
 
 #![no_std]
-#![feature(inline_const)]
 extern crate alloc;
 
 use alloc::string::String;

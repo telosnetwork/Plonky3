@@ -14,8 +14,8 @@ p3-matrix = { path = "../matrix" }
 p3-maybe-rayon = { path = "../maybe-rayon" }
 p3-util = { path = "../util" }
 
-tracing = "0.1.37"
-itertools = "0.13.0"
+tracing = { version = "0.1.37", default-features = false, features = ["attributes"] }
+itertools = {version = "0.13.0", default-features = false, features = ["use_alloc"]}
 serde = "1"
 
 [dev-dependencies]

@@ -6,10 +6,10 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 gcd = "2.3.0"
-itertools = "0.13.0"
+itertools = {version = "0.13.0", default-features = false, features = ["use_alloc"]}
 modinverse = "0.1.1"
 num = "0.4.0"
-num-integer = "0.1.45"
+num-integer = {version = "0.1.46", default-features = false }
 p3-field = { path = "../field" }
 p3-mds = { path = "../mds" }
 p3-symmetric = { path = "../symmetric" }

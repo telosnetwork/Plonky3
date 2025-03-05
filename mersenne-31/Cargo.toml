@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 nightly-features = []
 
 [dependencies]
-itertools = "0.13.0"
+itertools = {version = "0.13.0", default-features = false, features = ["use_alloc"]}
 p3-dft = { path = "../dft" }
 p3-field = { path = "../field" }
 p3-matrix = { path = "../matrix" }

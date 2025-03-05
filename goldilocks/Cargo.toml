@@ -8,14 +8,14 @@ license = "MIT OR Apache-2.0"
 nightly-features = []
 
 [dependencies]
-p3-field = { path = "../field" }
+num-bigint = { version = "0.4.3", default-features = false }
 p3-dft = { path = "../dft" }
+p3-field = { path = "../field" }
 p3-mds = { path = "../mds" }
+p3-poseidon2 = { path = "../poseidon2" }
 p3-symmetric = { path = "../symmetric" }
 p3-util = { path = "../util" }
-p3-poseidon2 = { path = "../poseidon2" }
-num-bigint = { version = "0.4.3", default-features = false }
-rand = { version ="0.8.5", default-features = false}
+rand = { version = "0.8.5", default-features = false }
 serde = { version = "1.0", default-features = false, features = ["derive"] }
 
 [dev-dependencies]

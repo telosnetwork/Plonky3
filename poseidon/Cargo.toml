@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 p3-field = { path = "../field" }
 p3-mds = { path = "../mds" }
 p3-symmetric = { path = "../symmetric" }
-rand = { version ="0.8.5", default-features = false}
+rand = { version = "0.8.5", default-features = false }
 
 [dev-dependencies]
 p3-baby-bear = { path = "../baby-bear" }

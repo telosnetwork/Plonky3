@@ -5,14 +5,14 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+itertools = { version = "0.13.0", default-features = false, features = ["use_alloc"] }
 p3-field = { path = "../field" }
 p3-maybe-rayon = { path = "../maybe-rayon" }
 p3-util = { path = "../util" }
-itertools = {version = "0.13.0", default-features = false, features = ["use_alloc"]}
-rand = { version ="0.8.5", default-features = false}
+rand = { version = "0.8.5", default-features = false }
 serde = { version = "1.0", default-features = false, features = ["derive"] }
-transpose = "0.2.3"
 tracing = { version = "0.1.37", default-features = false, features = ["attributes"] }
+transpose = "0.2.3"
 
 [dev-dependencies]
 criterion = "0.5.1"

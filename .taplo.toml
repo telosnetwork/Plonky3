@@ -1,0 +1,21 @@
+[formatting]
+reorder_keys = false
+
+[[rule]]
+keys = ["members"]
+
+[rule.formatting]
+reorder_arrays = true
+
+[[rule]]
+keys = ["features"]
+
+[rule.formatting]
+reorder_arrays = true
+
+[[rule]]
+keys = ["dependencies"]
+
+[rule.formatting]
+column_width = 9999
+reorder_keys = true

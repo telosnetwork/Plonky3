@@ -7,9 +7,9 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 gcd = "2.3.0"
 p3-field = { path = "../field" }
-p3-symmetric = { path = "../symmetric" }
 p3-mds = { path = "../mds" }
-rand = { version = "0.8.5", default-features= false, features = ["min_const_gen"] }
+p3-symmetric = { path = "../symmetric" }
+rand = { version = "0.8.5", default-features = false, features = ["min_const_gen"] }
 
 [dev-dependencies]
 p3-mersenne-31 = { path = "../mersenne-31" }

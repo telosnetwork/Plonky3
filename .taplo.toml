@@ -14,7 +14,7 @@ keys = ["features"]
 reorder_arrays = true
 
 [[rule]]
-keys = ["dependencies"]
+keys = ["dependencies", "dev-dependencies"]
 
 [rule.formatting]
 column_width = 9999

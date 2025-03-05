@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main", "goldilocks_improvements" ]
+    branches: [ "goldilocks_improvements" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "goldilocks_improvements" ]
 
 env:
   CARGO_TERM_COLOR: always

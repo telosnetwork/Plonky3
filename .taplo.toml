@@ -2,7 +2,7 @@
 reorder_keys = false
 
 [[rule]]
-keys = ["members"]
+keys = ["workspace"]
 
 [rule.formatting]
 reorder_arrays = true

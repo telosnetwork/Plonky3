@@ -166,7 +166,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
         scale_slice_in_place(scale, self.values.borrow_mut());
     }
 
-    pub fn split_rows(&self, r: usize) -> (RowMajorMatrixView<T>, RowMajorMatrixView<T>) {
+    pub fn split_rows(&self, r: usize) -> (RowMajorMatrixView<'_, T>, RowMajorMatrixView<'_, T>) {
         let (lo, hi) = self.values.borrow().split_at(r * self.width);
         (
             DenseMatrix::new(lo, self.width),
@@ -177,7 +177,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
     pub fn split_rows_mut(
         &mut self,
         r: usize,
-    ) -> (RowMajorMatrixViewMut<T>, RowMajorMatrixViewMut<T>)
+    ) -> (RowMajorMatrixViewMut<'_, T>, RowMajorMatrixViewMut<'_, T>)
     where
         S: BorrowMut<[T]>,
     {
@@ -191,7 +191,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
     pub fn par_row_chunks(
         &self,
         chunk_rows: usize,
-    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixView<T>>
+    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixView<'_, T>>
     where
         T: Send,
     {
@@ -204,7 +204,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
     pub fn par_row_chunks_exact(
         &self,
         chunk_rows: usize,
-    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixView<T>>
+    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixView<'_, T>>
     where
         T: Send,
     {
@@ -217,7 +217,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
     pub fn par_row_chunks_mut(
         &mut self,
         chunk_rows: usize,
-    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixViewMut<T>>
+    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixViewMut<'_, T>>
     where
         T: Send,
         S: BorrowMut<[T]>,
@@ -231,7 +231,7 @@ impl<T: Clone + Send + Sync, S: DenseStorage<T>> DenseMatrix<T, S> {
     pub fn par_row_chunks_exact_mut(
         &mut self,
         chunk_rows: usize,
-    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixViewMut<T>>
+    ) -> impl IndexedParallelIterator<Item = RowMajorMatrixViewMut<'_, T>>
     where
         T: Send,
         S: BorrowMut<[T]>,

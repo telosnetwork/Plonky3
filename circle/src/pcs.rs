@@ -357,7 +357,7 @@ where
                 for (batch_opening, (batch_commit, mats)) in izip!(input_openings, &rounds) {
                     let batch_heights: Vec<usize> = mats
                         .iter()
-                        .map(|(domain, _)| (domain.size() << self.fri_config.log_blowup))
+                        .map(|(domain, _)| domain.size() << self.fri_config.log_blowup)
                         .collect_vec();
                     let batch_dims: Vec<Dimensions> = batch_heights
                         .iter()

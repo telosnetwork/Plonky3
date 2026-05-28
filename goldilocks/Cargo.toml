@@ -4,9 +4,6 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
-[features]
-nightly-features = []
-
 [dependencies]
 num-bigint = { workspace = true, default-features = false }
 p3-dft.workspace = true

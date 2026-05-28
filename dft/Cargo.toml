@@ -23,11 +23,3 @@ rand.workspace = true
 [[bench]]
 name = "fft"
 harness = false
-
-[features]
-nightly-features = [
-  "p3-baby-bear/nightly-features",
-  "p3-goldilocks/nightly-features",
-  "p3-mersenne-31/nightly-features",
-  "p3-monty-31/nightly-features",
-]
